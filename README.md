@@ -8,20 +8,20 @@ If you need to invoke the same function/method several times with somewhat siiml
 bp = blueprint(callable [,reuseable_positional_arguments] [,default_dict_arguments])
 bp([more_positional_arguments,] [more_named_arguments])
 ```
-Say some function `fn` receives both positional and named arguments.<br>
-Instead of repeating the same argument values:
+Function `f` receives both positional and named arguments.<br>
+Instead of each time providing full set of arguments:
 ```
-fn(1, 1, a=1, b=2)
-fn(1, 2, a=1, b=3)
-fn(1, 3, a=2, b=4)
-fn(1, 4, a=1, b=6)
+f(1, 1, x=1, y=2)
+f(1, 2, x=1, y=3)
+f(1, 3, x=2, y=4)
+f(1, 4, x=1, y=6)
 ```
 You can write:
 ```
-bp = blueprint(fn, 1, a=1)
-bp(1, b=2)
-bp(2, b=3)
-bp(3, a=2, b=4)
-bp(4, b=5)
+b = blueprint(f, 1, x=1)
+b(1, y=2)
+b(2, y=3)
+b(3, x=2, y=4)
+b(4, y=5)
 ```
-Which better highlights difference in arguments used by hiding repetitive values
+Which better highlights difference in arguments by hiding repetitive values
